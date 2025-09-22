@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pluma Blanca FC — Escuela de Microfútbol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:#fff}
+    a{text-decoration:none;color:inherit}
+
+    :root{
+      --verde:#0B8A47;
+        --azul:#0B5FA4;
+      --gris-ui:#f6f7fb;
+      --texto:#414141;
+      --muted:#6b7280;
+      --container:1100px;
+      --borde:1px solid rgba(0,0,0,0.08);
+      --sombra:0 6px 18px rgba(16,24,40,0.06);
+    }
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    header{background:linear-gradient(90deg,rgba(11,95,164,0.06),rgba(11,138,71,0.06));position:sticky;top:0;z-index:40;border-bottom:var(--borde);backdrop-filter:saturate(140%) blur(4px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    nav ul{display:flex;gap:18px;list-style:none}
+    nav a{color:var(--texto);font-weight:600}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:48px 0}
+    .hero-left h1{font-size:2.2rem;color:var(--texto);line-height:1.06;margin-bottom:12px}
+    .hero-left p{color:var(--muted);margin-bottom:18px}
+    .cta-row{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;cursor:pointer;border:0;font-weight:700}
+    .btn-primary{background:var(--verde);color:#fff}
+    .btn-outline{background:transparent;border:2px solid var(--verde);color:var(--verde)}
+    .card{background:#fff;border-radius:14px;padding:22px;box-shadow:var(--sombra);border:var(--borde)}
+    .hero-right .info{display:flex;flex-direction:column;gap:10px}
+    .stat{display:flex;justify-content:space-between;align-items:center}
+
+    section{padding:36px 0}
+    h2{font-size:1.6rem;color:var(--texto)}
+    .lead{color:var(--muted);margin-top:8px;max-width:80%}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .coach{display:flex;gap:12px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--azul),var(--verde));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    .schedule{background:linear-gradient(180deg,#fff,var(--gris-ui));padding:18px;border-radius:12px;border:var(--borde)}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px;text-align:left;border-bottom:1px solid rgba(0,0,0,0.06);font-size:.96rem}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:170px;object-fit:cover;border-radius:10px;border:var(--borde)}
+
+    .contact{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,textarea,select{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12);outline:none}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{padding:26px 0;color:var(--muted);border-top:var(--borde)}
+
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      nav ul{display:none}
+      .lead{max-width:100%}
+    }
+    @media (max-width:520px){
+      .cards{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- Aquí agregas tu logo -->
+        <img src="PlumaBlanca.jpeg" alt="Logo Pluma Blanca FC" style="width:48px;height:48px;border-radius:10px;object-fit:cover;">
+        <div>
+          <div style="font-weight:800">Pluma Blanca FC</div>
+          <div style="font-size:.85rem;color:var(--muted)">Escuela de microfútbol • Suba</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#programas">Programas</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#horario">Horario</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Formación deportiva y en valores para jóvenes de Suba</h1>
+        <p>Entrenamientos de microfútbol con enfoque técnico, táctico, físico y ético. Operamos en Aures 1, Aures 2 y Lagos de Suba, integrando a familias y comunidad.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'});">Inscribirme</button>
+          <button class="btn btn-outline" onclick="document.getElementById('programas').scrollIntoView({behavior:'smooth'});">Ver programas</button>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card">
+          <h3 style="margin-bottom:8px">Datos rápidos</h3>
+          <div class="info">
+            <div class="stat"><span>📍 Zonas</span><strong>Aures 1, Aures 2, Lagos de Suba</strong></div>
+            <div class="stat"><span>👥 Categorías</span><strong>Sub-8 • Sub-12 • Sub-16 • Sub-18</strong></div>
+            <div class="stat"><span>🕒 Sesiones</span><strong>3 por semana</strong></div>
+            <div class="stat"><span>🩺 Bienestar</span><strong>Nutrición • Fisioterapia</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+      <h2>Sobre Pluma Blanca FC</h2>
+      <p class="lead">Somos un club de microfútbol sin ánimo de lucro que forma deportistas y mejores personas. Combinamos entrenamiento de calidad con valores: respeto, disciplina, inclusión y trabajo en equipo.</p>
+    </section>
+
+    <!-- PROGRAMAS -->
+    <section id="programas">
+      <h2>Programas</h2>
+      <div class="cards" style="margin-top:12px">
+        <div class="card">
+          <h3>Semillero (5–8 años)</h3>
+          <p class="muted">Juego, coordinación, motricidad y primeros contactos con el balón.</p>
+        </div>
+        <div class="card">
+          <h3>Formativo (9–12 años)</h3>
+          <p class="muted">Técnica individual, fundamentos tácticos y hábitos saludables.</p>
+        </div>
+        <div class="card">
+          <h3>Competitivo (13–18 años)</h3>
+          <p class="muted">Entrenamiento avanzado, análisis de juego y participación en torneos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo">
+      <h2>Equipo técnico</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+        <div class="card coach"><div class="avatar">JM</div><div><strong>José Manuel Agamez Pacheco</strong><div style="color:var(--muted)">Gerente Director</div></div></div>
+        <div class="card coach"><div class="avatar">YV</div><div><strong>Yordis Manuel Valdez Sarmiento</strong><div style="color:var(--muted)">Preparador físico y entrenador</div></div></div>
+        <div class="card coach"><div class="avatar">FM</div><div><strong>Faiber Alejandro Mahecha Vargas</strong><div style="color:var(--muted)">Tesorero</div></div></div>
+        <div class="card coach"><div class="avatar">JP</div><div><strong>Juan David Peñaloza Ortiz</strong><div style="color:var(--muted)">Nutricionista y fisioterapeuta</div></div></div>
+      </div>
+    </section>
+
+    <!-- HORARIO -->
+    <section id="horario">
+      <h2>Horario</h2>
+      <div class="schedule" style="margin-top:12px">
+        <table>
+          <thead><tr><th>Categoría</th><th>Días</th><th>Hora</th><th>Sede</th></tr></thead>
+          <tbody>
+            <tr><td>Semillero (5–8)</td><td>Mar y Jue</td><td>4:00 pm – 5:30 pm</td><td>Aures 1</td></tr>
+            <tr><td>Formativo (9–12)</td><td>Lun, Mié y Vie</td><td>4:30 pm – 6:00 pm</td><td>Aures 2</td></tr>
+            <tr><td>Competitivo (13–18)</td><td>Lun a Vie</td><td>6:00 pm – 8:00 pm</td><td>Lagos de Suba</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+      <h2>Galería</h2>
+      <div class="gallery" style="margin-top:12px">
+        <img src= "equipo.jpeg" alt="Entrenamiento 1">
+        <img src="partido.jpeg" alt="Entrenamiento 2">
+        <img src="entre.jpeg"Partido amistoso">
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact" style="margin-top:12px">
+        <div>
+          <form onsubmit="event.preventDefault();alert('¡Gracias! Formulario enviado (demo).')">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="tel" name="telefono" placeholder="Teléfono" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <select name="categoria" required>
+              <option value="">Selecciona la categoría de interés</option>
+              <option>Semillero (5–8)</option>
+              <option>Formativo (9–12)</option>
+              <option>Competitivo (13–18)</option>
+            </select>
+            <textarea name="mensaje" placeholder="Mensaje / dudas"></textarea>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Información</h3>
+          <p style="color:var(--muted);margin-top:6px">Zonas: Aures 1 • Aures 2 • Parque Lagos de Suba<br>Tel: +57 322 815 0357<br>Email: blancapluma199@gmail.com</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© <strong>Pluma Blanca FC</strong> — Escuela de Microfútbol • Suba</div>
+      <div style="color:var(--muted)">Síguenos: Instagram: Plumablanca_Fc• Facebook: Pluma Blanca FC • TikTok: PlumaBlanca_00</div>
+    </div>
+  </footer>
+</body>
+</html> 
